@@ -1,0 +1,1 @@
+rootProject.name = "Component_Based_Architecture_Java"
