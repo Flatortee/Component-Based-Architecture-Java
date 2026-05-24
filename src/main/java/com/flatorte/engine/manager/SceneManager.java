@@ -16,22 +16,18 @@ public final class SceneManager {
     public Scene GetCurrentScene() {
         return _currentScene;
     }
-
     public Set<String> GetAvailableScenes() {
         return _availableScenesView;
     }
-
     public boolean IsLoading() {
         return _isLoading;
     }
-
     public float GetProgressionPercent() {
         return _progressionPercent;
     }
 
     public <T extends Scene>
     void RegisterScene(String name, Class<T> type) {
-
         if (name == null || type == null) {
             return;
         }
@@ -40,7 +36,6 @@ public final class SceneManager {
     }
 
     public void ChangeScene(String sceneName, boolean autoStart) {
-
         if (sceneName == null) {
             return;
         }
@@ -112,7 +107,6 @@ public final class SceneManager {
     }
 
     public void Draw() {
-
         if (_isLoading) {
 
             DrawLoadingScreen();
@@ -129,10 +123,6 @@ public final class SceneManager {
 
         // TODO renderer abstraction
 
-        System.out.println(
-                "Loading... "
-                        + _progressionPercent
-                        + "%"
-        );
+        System.out.println("Loading... " + _progressionPercent + "%");
     }
 }

@@ -25,7 +25,6 @@ public final class EntityManager {
     }
 
     public <T extends Component> ArrayList<T> FindComponentsOfType(Class<T> type) {
-
         ArrayList<T> result = new ArrayList<>();
 
         for (int i = 0; i < _entities.size(); i++) {
@@ -41,7 +40,6 @@ public final class EntityManager {
     }
 
     public Entity FindEntityByName(String name) {
-
         if (name == null) return null;
 
         for (int i = 0; i < _entities.size(); i++) {
@@ -91,7 +89,6 @@ public final class EntityManager {
     }
 
     public void Update(float dt) {
-
         ProcessModifications();
 
         for (int i = 0; i < _entities.size(); i++) {
@@ -106,8 +103,6 @@ public final class EntityManager {
     }
 
     private void ProcessModifications() {
-
-        // ADD
         if (!_toAdd.isEmpty()) {
             for (int i = 0; i < _toAdd.size(); i++) {
                 Entity e = _toAdd.get(i);
@@ -118,7 +113,6 @@ public final class EntityManager {
             _toAdd.clear();
         }
 
-        // REMOVE
         if (!_toRemove.isEmpty()) {
             for (int i = 0; i < _toRemove.size(); i++) {
                 _entities.remove(_toRemove.get(i));
