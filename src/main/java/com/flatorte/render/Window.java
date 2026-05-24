@@ -34,6 +34,7 @@ public final class Window {
         glfwSwapInterval(1);
         glfwShowWindow(_window);
         GL.createCapabilities();
+        glEnable(GL_DEPTH_TEST);
     }
 
     public void Destroy() {
@@ -53,6 +54,10 @@ public final class Window {
             glfwSetWindowMonitor(_window, NULL, 100, 100, 800, 600, GLFW_DONT_CARE);
             _isFullscreen = false;
         }
+    }
+
+    public long GetHandle() {
+        return _window;
     }
 
     public boolean IsOpen() {

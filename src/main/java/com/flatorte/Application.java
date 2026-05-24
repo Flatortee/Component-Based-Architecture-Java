@@ -2,6 +2,8 @@ package com.flatorte;
 
 import com.flatorte.engine.Engine;
 import com.flatorte.render.Window;
+import com.flatorte.utils.Input;
+import com.flatorte.utils.Mouse;
 import com.flatorte.utils.Time;
 
 public final class Application {
@@ -10,11 +12,14 @@ public final class Application {
 
     public Application() {
         Time.Init();
+        Input.Init(_window.GetHandle());
+        Mouse.Init(_window.GetHandle());
     }
 
     public void Run() {
         while (_window.IsOpen()) {
             Time.Update();
+            Mouse.Update();
             Events();
             Update(Time.GetDeltaTime());
             Draw();
