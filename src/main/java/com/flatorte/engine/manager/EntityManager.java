@@ -1,4 +1,7 @@
-package com.flatorte;
+package com.flatorte.engine.manager;
+
+import com.flatorte.engine.base.Component;
+import com.flatorte.engine.base.Entity;
 
 import java.util.ArrayList;
 import java.util.Collections;

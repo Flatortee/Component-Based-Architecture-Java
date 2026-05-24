@@ -1,4 +1,6 @@
-package com.flatorte;
+package com.flatorte.engine.base;
+
+import com.flatorte.engine.manager.EntityManager;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -48,13 +50,15 @@ public final class Entity {
     }
 
     // Components
-    public <T extends Component> T AddComponent(T component) {
+    public <T extends Component>
+    T AddComponent(T component) {
         component.SetEntity(this);
         _components.add(component);
         return component;
     }
 
-    public <T extends Component> T GetComponent(Class<T> type) {
+    public <T extends Component>
+    T GetComponent(Class<T> type) {
         for (Component c : _components) {
             if (type.isInstance(c)) {
                 return type.cast(c);
@@ -63,7 +67,8 @@ public final class Entity {
         return null;
     }
 
-    public <T extends Component> T RemoveComponent(Class<T> type) {
+    public <T extends Component>
+    T RemoveComponent(Class<T> type) {
         for (int i = 0; i < _components.size(); i++) {
             Component c = _components.get(i);
             if (type.isInstance(c)) {

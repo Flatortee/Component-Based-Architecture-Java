@@ -1,6 +1,6 @@
-package com.flatorte.components;
+package com.flatorte.engine.components;
 
-import com.flatorte.Component;
+import com.flatorte.engine.base.Component;
 
 public class Debug extends Component {
     public void Start() {

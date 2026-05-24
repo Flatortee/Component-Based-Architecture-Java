@@ -1,35 +1,42 @@
 package com.flatorte;
 
-import com.flatorte.components.Debug;
+import com.flatorte.engine.Engine;
+import com.flatorte.render.Window;
+import com.flatorte.utils.Time;
 
 public final class Application {
-    private final EntityManager _entityManager = new EntityManager();
+    private final Window _window = new Window("Engine", 800, 600);
+    private final Engine _engine = new Engine();
 
     public Application() {
-        Run();
+        Time.Init();
     }
 
     public void Run() {
-        Start();
-        while (true) {
-            Update();
+        while (_window.IsOpen()) {
+            Time.Update();
+            Events();
+            Update(Time.GetDeltaTime());
             Draw();
         }
+        Destroy();
     }
 
-    private void Start() {
-        Entity e = new Entity("Player");
-        e.AddComponent(new Debug());
-        _entityManager.AddEntity(e);
-        _entityManager.Awake();
-        _entityManager.Start();
+    private void Events() {
+        _window.PollEvents();
     }
 
-    private void Update() {
-        _entityManager.Update(1f / 60f);
+    private void Update(float dt) {
+        _engine.Update(dt);
     }
 
     private void Draw() {
-        _entityManager.Draw();
+        _window.Clear();
+        _engine.Draw();
+        _window.Display();
+    }
+
+    private void Destroy() {
+        _window.Destroy();
     }
 }

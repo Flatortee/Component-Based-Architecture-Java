@@ -1,4 +1,4 @@
-package com.flatorte;
+package com.flatorte.engine.base;
 
 public abstract class Component {
     protected Entity entity;
@@ -19,6 +19,7 @@ public abstract class Component {
     public void SetEnabled(boolean enabled) { IsEnabled = enabled; }
     public void ToggleEnabled() { IsEnabled = !IsEnabled; }
 
+    // Methods
     public void Awake() { }
     public void Start() { }
     public void Update(float dt) { }
